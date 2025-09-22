@@ -1,2 +1,2 @@
 # mprpc
-通信框架 muduo库+protobuffer+zookeeper
+分布式通信框架 muduo库+protobuffer+zookeeper
