@@ -1,0 +1,56 @@
+syntax = "proto3"; // 使用版本
+
+package fixbug; //声明包
+
+option cc_generic_services = true;
+
+// 定义登录请求消息类型 name pwd
+message LoginRequest
+{
+    bytes name = 1;
+    bytes pwd = 2; //  使用bytes strig
+    // map<int32, string> test = 3;
+}
+
+//定义登录回复信息
+message LoginResponse
+{
+    ResultCode result = 1;
+    bool success = 2;
+}
+
+message ResultCode
+{
+    int32 errcode = 1;
+    bytes errmsg = 2;
+}
+
+message GetFriendListsRequest
+{
+    uint32 userid = 1;
+}
+
+message User
+{
+    bytes name = 1;
+    uint32 age = 2;
+    enum Sex
+    {
+        MAN = 0;
+        WOMAN = 1;
+    }
+    Sex sex = 3;
+}
+
+message GetFriendListsResponse
+{
+    ResultCode result = 1;
+    repeated User friend_list = 2;
+}
+
+// 在protobuf里面定义描述rpc方法的类型 - service
+service UserServiceRpc
+{
+    rpc Login(LoginRequest) returns(LoginResponse);
+    rpc GetFrinedLists(GetFriendListsRequest) returns(GetFriendListsResponse);
+}

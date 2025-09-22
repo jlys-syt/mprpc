@@ -1,0 +1,11 @@
+# rpc节点的ip地址
+rpcserverip=127.0.0.1
+
+# rpc节点的port地址
+rpcserverport=8000
+
+# rpc节点的ip地址
+zookeeperip=127.0.0.1
+
+# rpc节点的port地址
+zookeeperport=2181
